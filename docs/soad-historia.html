@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historia de System of a Down - Repasada Rápida</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        .presentation {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+            padding: 40px 60px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .slide.active {
+            display: flex;
+            animation: fadeIn 0.6s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .slide h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            color: #e63946;
+            text-shadow: 0 0 20px rgba(230, 57, 70, 0.4);
+            letter-spacing: 2px;
+        }
+
+        .slide h2 {
+            font-size: 1.6rem;
+            margin-bottom: 30px;
+            color: #f1faee;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .slide-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
+            max-width: 1100px;
+            width: 100%;
+        }
+
+        .slide-text {
+            flex: 1;
+            text-align: left;
+        }
+
+        .slide-text p {
+            font-size: 1.15rem;
+            line-height: 1.7;
+            margin-bottom: 18px;
+            color: #d1d1d1;
+        }
+
+        .slide-text ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .slide-text li {
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            color: #e0e0e0;
+        }
+
+        .slide-text li::before {
+            content: "▸";
+            color: #e63946;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .slide-image {
+            flex: 0 0 380px;
+        }
+
+        .slide-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+            border: 3px solid #e63946;
+            object-fit: cover;
+            max-height: 420px;
+        }
+
+        .nav-buttons {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+            z-index: 100;
+        }
+
+        .nav-btn {
+            background: #e63946;
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            font-size: 1rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .nav-btn:hover {
+            background: #c1121f;
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(230, 57, 70, 0.5);
+        }
+
+        .nav-btn:disabled {
+            background: #444;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 5px;
+            background: #e63946;
+            transition: width 0.4s ease;
+            z-index: 100;
+        }
+
+        .slide-number {
+            position: fixed;
+            top: 25px;
+            right: 40px;
+            font-size: 1rem;
+            color: #888;
+            letter-spacing: 2px;
+        }
+
+        .title-slide {
+            background: linear-gradient(135deg, #1a0000 0%, #0a0a0a 50%, #1a0000 100%);
+        }
+
+        .title-slide h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .title-slide .subtitle {
+            font-size: 1.4rem;
+            color: #aaa;
+            margin-bottom: 40px;
+        }
+
+        .band-name {
+            font-size: 1.8rem;
+            color: #e63946;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-top: 20px;
+        }
+
+        .highlight {
+            color: #e63946;
+            font-weight: 600;
+        }
+
+        @media (max-width: 900px) {
+            .slide-content {
+                flex-direction: column;
+                gap: 25px;
+            }
+            .slide-image {
+                flex: 0 0 auto;
+                max-width: 280px;
+            }
+            .slide h1 {
+                font-size: 2rem;
+            }
+            .slide-text p, .slide-text li {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="progress" id="progress"></div>
+    <div class="slide-number" id="slideNumber">1 / 4</div>
+
+    <div class="presentation">
+        <!-- SLIDE 0: Portada -->
+        <div class="slide title-slide active" id="slide-0">
+            <h1>SYSTEM OF A DOWN</h1>
+            <div class="subtitle">Una repasada rápida a su historia</div>
+            <div class="band-name">1994 — Presente</div>
+            <p style="margin-top: 50px; color: #777; font-size: 1rem;">Usa las flechas ← → o los botones para navegar</p>
+        </div>
+
+        <!-- SLIDE 1: Parte 1 - Orígenes -->
+        <div class="slide" id="slide-1">
+            <h1>Parte 1</h1>
+            <h2>Orígenes y Formación (1994 – 2001)</h2>
+            <div class="slide-content">
+                <div class="slide-text">
+                    <p>System of a Down nace en <span class="highlight">Los Ángeles</span> en 1994, formado por músicos de origen armenio-estadounidense.</p>
+                    <ul>
+                        <li><strong>Serj Tankian</strong> – voz / teclados</li>
+                        <li><strong>Daron Malakian</strong> – guitarra / voz</li>
+                        <li><strong>Shavo Odadjian</strong> – bajo</li>
+                        <li><strong>John Dolmayan</strong> – batería (se une en 1997)</li>
+                    </ul>
+                    <p>Después de tocar en el underground de L.A. y firmar con American Recordings, publican su <span class="highlight">álbum debut homónimo</span> en 1998, producido por Rick Rubin.</p>
+                    <p>El sonido único mezcla metal, rock experimental, folk armenio y letras políticas.</p>
+                </div>
+                <div class="slide-image">
+                    <img src="images/soad1.jpg" alt="System of a Down - Orígenes">
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 2: Parte 2 - Éxito -->
+        <div class="slide" id="slide-2">
+            <h1>Parte 2</h1>
+            <h2>Éxito Mundial (2001 – 2006)</h2>
+            <div class="slide-content">
+                <div class="slide-text">
+                    <p>El 2001 marca el gran salto con <span class="highlight">Toxicity</span>, uno de los álbumes más influyentes del metal moderno.</p>
+                    <ul>
+                        <li>Éxitos masivos: <em>Chop Suey!</em>, <em>Toxicity</em>, <em>Aerials</em></li>
+                        <li>Más de 12 millones de copias vendidas en todo el mundo</li>
+                        <li>Sonido inconfundible y letras anti-guerra y sociales</li>
+                    </ul>
+                    <p>En 2005 lanzan el doble álbum <span class="highlight">Mezmerize / Hypnotize</span>, alcanzando el #1 en Billboard.</p>
+                    <p>Después de una gira intensa, la banda entra en un largo hiato en 2006.</p>
+                </div>
+                <div class="slide-image">
+                    <img src="images/soad2.jpg" alt="System of a Down - Época de Toxicity">
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 3: Parte 3 - Reunión y Legado -->
+        <div class="slide" id="slide-3">
+            <h1>Parte 3</h1>
+            <h2>Reunión y Legado (2011 – Presente)</h2>
+            <div class="slide-content">
+                <div class="slide-text">
+                    <p>Tras años de proyectos solistas, System of a Down se reúne en <span class="highlight">2011</span> para giras y festivales.</p>
+                    <ul>
+                        <li>2015: Gira mundial por el 20º aniversario</li>
+                        <li>2020: Lanzan dos nuevas canciones (<em>Protect the Land</em> y <em>Genocidal Humanoidz</em>) en apoyo a Armenia</li>
+                        <li>Continúan tocando en los mayores festivales del mundo</li>
+                    </ul>
+                    <p>Hoy son considerados una de las bandas más importantes y originales del metal alternativo, con un legado político y musical único.</p>
+                    <p style="margin-top: 20px; font-style: italic; color: #e63946;">“Question everything.”</p>
+                </div>
+                <div class="slide-image">
+                    <img src="images/soad3.jpg" alt="System of a Down - Actualidad">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="nav-buttons">
+        <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">← Anterior</button>
+        <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Siguiente →</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const totalSlides = 4;
+
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+            
+            if (n >= totalSlides) currentSlide = totalSlides - 1;
+            if (n < 0) currentSlide = 0;
+
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[currentSlide].classList.add('active');
+
+            // Actualizar barra de progreso
+            const progress = ((currentSlide + 1) / totalSlides) * 100;
+            document.getElementById('progress').style.width = progress + '%';
+
+            // Actualizar número de slide
+            document.getElementById('slideNumber').textContent = `${currentSlide + 1} / ${totalSlides}`;
+
+            // Habilitar/deshabilitar botones
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+        }
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+            showSlide(currentSlide);
+        }
+
+        // Navegación con teclado
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                changeSlide(1);
+            } else if (e.key === 'ArrowLeft') {
+                changeSlide(-1);
+            }
+        });
+
+        // Inicializar
+        showSlide(0);
+    </script>
+</body>
+</html>
